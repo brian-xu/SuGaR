@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  sugar:
+    shm_size: '12gb'
+    build:
+      context: ..
+      dockerfile: ./Dockerfile
+    stdin_open: true
+    tty: true
+    environment:
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,graphics
+      DISPLAY: $DISPLAY
+    volumes:
+      - ../:/workspace/
+      - ../../mountain_data:/mountain_data/
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    working_dir: /workspace/
+    command: /bin/bash
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]

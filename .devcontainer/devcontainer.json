@@ -1,0 +1,14 @@
+{
+    "name": "SuGaR Dev Container",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "sugar",
+    "workspaceFolder": "/workspace",
+    "shutdownAction": "stopCompose",
+    "extensions": [
+        "mutantdino.resourcemonitor",
+        "ms-azuretools.vscode-docker",
+        "nvidia.nsight-vscode-edition",
+        "ms-python.python",
+        "charliermarsh.ruff"
+    ]
+}
